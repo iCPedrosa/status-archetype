@@ -3,123 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status Archetype | Elevate Your Presence</title>
+    <title>Status Archetype | The Sovereign Baseline</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'obsidian': '#0a0a0a',
-                        'icy-grey': '#c4c8cc',
-                        'silver': '#e0e3e6',
+                        'void': '#050505',
+                        'obsidian': '#0a0a0b',
+                        'carbon': '#141415',
+                        'graphite': '#2a2a2b',
+                        'silver': '#e2e4e6',
+                        'ghost': '#8a8d91',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Manrope', 'sans-serif'],
                         serif: ['Cinzel', 'serif'],
+                    },
+                    letterSpacing: {
+                        'widest-xl': '0.25em',
+                        'widest-2xl': '0.4em',
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #0a0a0a; color: #ffffff; }
-        .fade-in { animation: fadeIn 1.5s ease-in forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body { 
+            background-color: #050505; 
+            color: #e2e4e6; 
+        }
+        /* Film Grain Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.035;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Hover line effect for links */
+        .hover-line {
+            position: relative;
+        }
+        .hover-line::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 1px;
+            bottom: -4px; left: 0;
+            background-color: #e2e4e6;
+            transition: width 0.4s ease;
+        }
+        .hover-line:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-icy-grey selection:text-obsidian flex flex-col min-h-screen">
+<body class="antialiased selection:bg-silver selection:text-void flex flex-col min-h-screen">
+    
+    <div class="noise-overlay"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-obsidian/80 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl tracking-widest font-serif font-semibold text-silver uppercase">
+    <!-- Minimalist Navigation -->
+    <nav class="fixed w-full z-50 bg-void/70 backdrop-blur-xl border-b border-graphite/30">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <div class="text-sm tracking-widest-xl font-serif text-silver uppercase">
                 Status Archetype
             </div>
-            <a href="#waitlist" class="text-sm tracking-widest text-icy-grey hover:text-white transition-colors duration-300 uppercase">
-                The Protocol
-            </a>
+            <div class="flex gap-8 items-center">
+                <a href="#the-archive" class="text-xs tracking-widest font-medium text-ghost hover:text-silver transition-colors duration-300 uppercase hover-line">
+                    The Archive
+                </a>
+                <a href="#portal" class="text-xs tracking-widest font-medium text-silver border border-graphite px-5 py-2 hover:bg-silver hover:text-void transition-all duration-500 uppercase">
+                    Client Portal
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <main class="flex-grow flex flex-col justify-center items-center text-center px-6 pt-32 pb-20 fade-in">
-        <h1 class="text-5xl md:text-7xl font-serif font-semibold mb-6 tracking-wide text-white leading-tight">
-            Command the Room.<br>
-            <span class="text-icy-grey">Without a Word.</span>
-        </h1>
-        <p class="mt-4 max-w-2xl text-gray-400 text-lg md:text-xl font-light leading-relaxed mb-10">
-            The definitive blueprint for executive presence, social dynamics, and elevated status. Rewrite your social code and navigate any hierarchy with quiet power.
-        </p>
-        <a href="#waitlist" class="bg-white text-obsidian px-8 py-4 font-semibold tracking-wider hover:bg-icy-grey transition-all duration-300 uppercase text-sm border border-transparent shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-            Apply for Early Access
-        </a>
+    <!-- Cinematic Hero -->
+    <main class="relative flex-grow flex flex-col justify-center items-center text-center px-6 min-h-[90vh]">
+        <!-- Subtle radial gradient behind text -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(42,42,43,0.15)_0,rgba(5,5,5,1)_60%)] pointer-events-none"></div>
+        
+        <div class="relative z-10 reveal">
+            <h2 class="text-xs tracking-widest-2xl text-ghost uppercase mb-8 font-semibold">The Sovereign Baseline</h2>
+            <h1 class="text-5xl md:text-8xl font-serif font-medium mb-8 tracking-wide text-silver leading-tight">
+                Command The Room.<br>
+                <span class="text-graphite">Without A Word.</span>
+            </h1>
+            <p class="mt-6 max-w-2xl mx-auto text-ghost text-base md:text-lg font-light leading-relaxed mb-12">
+                An exclusive protocol detailing the architecture of influence, executive presence, and non-verbal dominance. Decode the social hierarchy.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#dossier" class="bg-silver text-void px-10 py-4 text-xs font-bold tracking-widest hover:bg-white hover:shadow-[0_0_30px_rgba(226,228,230,0.15)] transition-all duration-500 uppercase">
+                    Request Dossier
+                </a>
+                <a href="#the-archive" class="text-xs tracking-widest text-ghost hover:text-silver transition-colors uppercase hover-line pb-1">
+                    Enter The Archive
+                </a>
+            </div>
+        </div>
     </main>
 
-    <!-- The Curriculum Section -->
-    <section class="py-24 bg-zinc-950 border-t border-gray-900">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-sm tracking-widest text-icy-grey uppercase mb-3 font-semibold">The Architecture of Influence</h2>
-                <h3 class="text-3xl md:text-4xl font-serif text-white">Three Pillars of Status</h3>
+    <!-- The Archive (Curriculum) -->
+    <section id="the-archive" class="py-32 bg-obsidian relative border-t border-graphite/20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="mb-24 reveal">
+                <h2 class="text-xs tracking-widest-xl text-ghost uppercase mb-4 font-semibold border-l border-ghost pl-4">Deconstruct The Matrix</h2>
+                <h3 class="text-3xl md:text-5xl font-serif text-silver">The Architecture of Influence</h3>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-12">
+            <div class="grid md:grid-cols-3 gap-8 md:gap-12">
                 <!-- Pillar 1 -->
-                <div class="p-8 border border-gray-800 hover:border-gray-600 transition-colors duration-500 bg-obsidian group">
-                    <div class="w-12 h-12 border border-icy-grey flex items-center justify-center mb-6 text-icy-grey group-hover:bg-icy-grey group-hover:text-obsidian transition-all duration-500">I</div>
-                    <h4 class="text-xl font-serif mb-4 text-silver">Aesthetic Dominance</h4>
-                    <p class="text-gray-400 font-light leading-relaxed text-sm">
-                        Cultivate a physical presence that demands immediate respect. From tailored silhouettes to non-verbal posturing, dictate how the world perceives you before you speak.
-                    </p>
+                <div class="reveal group relative">
+                    <div class="absolute inset-0 bg-graphite/10 transform scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-700 ease-out"></div>
+                    <div class="p-10 border border-graphite/30 h-full relative z-10 backdrop-blur-sm">
+                        <div class="text-xs font-serif text-ghost tracking-widest mb-8 uppercase border-b border-graphite/30 pb-4">Volume I</div>
+                        <h4 class="text-2xl font-serif mb-6 text-silver">Aesthetic Dominance</h4>
+                        <p class="text-ghost font-light leading-loose text-sm">
+                            Cultivate a physical presence that demands immediate, unquestioned respect. Master sartorial psychology, silhouette scaling, and the visceral impact of non-verbal posturing. Dictate perception before you ever speak.
+                        </p>
+                    </div>
                 </div>
                 
                 <!-- Pillar 2 -->
-                <div class="p-8 border border-gray-800 hover:border-gray-600 transition-colors duration-500 bg-obsidian group">
-                    <div class="w-12 h-12 border border-icy-grey flex items-center justify-center mb-6 text-icy-grey group-hover:bg-icy-grey group-hover:text-obsidian transition-all duration-500">II</div>
-                    <h4 class="text-xl font-serif mb-4 text-silver">Vocal Resonance</h4>
-                    <p class="text-gray-400 font-light leading-relaxed text-sm">
-                        Master the cadence of authority. Learn to drop your vocal inflection, weaponize silence, and speak with a deliberate weight that commands attention.
-                    </p>
+                <div class="reveal group relative" style="transition-delay: 100ms;">
+                    <div class="absolute inset-0 bg-graphite/10 transform scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-700 ease-out"></div>
+                    <div class="p-10 border border-graphite/30 h-full relative z-10 backdrop-blur-sm">
+                        <div class="text-xs font-serif text-ghost tracking-widest mb-8 uppercase border-b border-graphite/30 pb-4">Volume II</div>
+                        <h4 class="text-2xl font-serif mb-6 text-silver">Vocal Resonance</h4>
+                        <p class="text-ghost font-light leading-loose text-sm">
+                            Adopt the cadence of definitive authority. Learn to anchor your vocal inflection, weaponize silence, and speak with a deliberate, unshakeable weight that forces others to lean in and listen.
+                        </p>
+                    </div>
                 </div>
                 
                 <!-- Pillar 3 -->
-                <div class="p-8 border border-gray-800 hover:border-gray-600 transition-colors duration-500 bg-obsidian group">
-                    <div class="w-12 h-12 border border-icy-grey flex items-center justify-center mb-6 text-icy-grey group-hover:bg-icy-grey group-hover:text-obsidian transition-all duration-500">III</div>
-                    <h4 class="text-xl font-serif mb-4 text-silver">Social Hierarchy</h4>
-                    <p class="text-gray-400 font-light leading-relaxed text-sm">
-                        Navigate high-stakes environments effortlessly. Decode group dynamics, establish unbreakable boundaries, and position yourself as the definitive high-value asset.
-                    </p>
+                <div class="reveal group relative" style="transition-delay: 200ms;">
+                    <div class="absolute inset-0 bg-graphite/10 transform scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-700 ease-out"></div>
+                    <div class="p-10 border border-graphite/30 h-full relative z-10 backdrop-blur-sm">
+                        <div class="text-xs font-serif text-ghost tracking-widest mb-8 uppercase border-b border-graphite/30 pb-4">Volume III</div>
+                        <h4 class="text-2xl font-serif mb-6 text-silver">Social Hierarchy</h4>
+                        <p class="text-ghost font-light leading-loose text-sm">
+                            Navigate high-stakes environments effortlessly. Decode subtle power dynamics, establish unbreakable boundaries, and position yourself as the undeniable, high-value asset in any room.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Waitlist / CTA -->
-    <section id="waitlist" class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0,rgba(10,10,10,1)_50%)]"></div>
-        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
-            <h2 class="text-3xl md:text-5xl font-serif mb-6 text-white">The Inner Circle</h2>
-            <p class="text-gray-400 mb-10 font-light text-lg">
-                Status Archetype is currently an invitation-only protocol. Enter your email to secure your position on the private waitlist.
+    <section id="dossier" class="py-40 bg-void relative overflow-hidden border-t border-graphite/20">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(42,42,43,0.1)_0,rgba(5,5,5,1)_70%)]"></div>
+        <div class="max-w-2xl mx-auto px-6 text-center relative z-10 reveal">
+            <h2 class="text-4xl md:text-6xl font-serif mb-8 text-silver">The Inner Circle</h2>
+            <p class="text-ghost mb-12 font-light text-base leading-relaxed">
+                The Status Archetype intelligence vault is strictly invitation-only. Access to the proprietary infographics, dossiers, and executive breakdowns is limited. Submit your credentials to request clearance.
             </p>
-            <form class="flex flex-col md:flex-row gap-4 justify-center max-w-xl mx-auto" onsubmit="event.preventDefault(); alert('Waitlist submission captured. Welcome to the Archetype.');">
-                <input type="email" placeholder="Your executive email..." required
-                    class="bg-transparent border border-gray-700 text-white px-6 py-4 w-full focus:outline-none focus:border-icy-grey transition-colors placeholder-gray-600 font-light">
-                <button type="submit" class="bg-icy-grey text-obsidian px-8 py-4 font-semibold tracking-wider hover:bg-white transition-colors duration-300 uppercase whitespace-nowrap text-sm">
-                    Request Entry
+            <form class="flex flex-col sm:flex-row gap-0 justify-center border border-graphite/50 group hover:border-graphite transition-colors duration-500" onsubmit="event.preventDefault(); alert('Request logged. Awaiting clearance.');">
+                <input type="email" placeholder="Enter executive email..." required
+                    class="bg-transparent text-silver px-8 py-5 w-full focus:outline-none placeholder-graphite font-light text-sm">
+                <button type="submit" class="bg-carbon text-silver px-10 py-5 text-xs font-bold tracking-widest hover:bg-silver hover:text-void transition-colors duration-500 uppercase whitespace-nowrap border-l border-graphite/50 group-hover:border-graphite">
+                    Initiate Review
                 </button>
             </form>
+            <p class="text-graphite text-xs mt-6 tracking-widest uppercase">Encryption Standard 04 // Restricted Access</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-gray-900 py-10 text-center">
-        <p class="text-gray-600 text-sm tracking-widest uppercase font-light">
+    <footer class="border-t border-graphite/20 py-12 bg-obsidian text-center">
+        <p class="text-graphite text-xs tracking-widest-xl uppercase font-light">
             &copy; 2024 Status Archetype. All Rights Reserved.
         </p>
     </footer>
 
+    <!-- Scroll Animation Script -->
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+    </script>
 </body>
 </html>
