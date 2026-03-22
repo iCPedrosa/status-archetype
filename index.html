@@ -5,187 +5,273 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Status Archetype | The Sovereign Baseline</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'void': '#050505',
-                        'obsidian': '#0a0a0b',
-                        'carbon': '#141415',
-                        'graphite': '#2a2a2b',
+                        'void': '#030303',
+                        'obsidian': '#080809',
+                        'carbon': '#111112',
+                        'graphite': '#232324',
                         'silver': '#e2e4e6',
-                        'ghost': '#8a8d91',
+                        'ghost': '#787a7d',
                     },
                     fontFamily: {
                         sans: ['Manrope', 'sans-serif'],
                         serif: ['Cinzel', 'serif'],
                     },
                     letterSpacing: {
-                        'widest-xl': '0.25em',
-                        'widest-2xl': '0.4em',
+                        'widest-xl': '0.3em',
+                        'widest-2xl': '0.5em',
                     }
                 }
             }
         }
     </script>
     <style>
-        body { 
-            background-color: #050505; 
-            color: #e2e4e6; 
-        }
-        /* Film Grain Overlay */
+        body { background-color: #030303; color: #e2e4e6; line-height: 1.8; }
         .noise-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.035;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none; z-index: 9999; opacity: 0.04;
             background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
         }
-        /* Scroll reveal animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Hover line effect for links */
-        .hover-line {
-            position: relative;
-        }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .quote-block { border-left: 2px solid #787a7d; padding-left: 1.5rem; margin: 2.5rem 0; font-family: 'Cinzel', serif; font-size: 1.3rem; color: #e2e4e6; letter-spacing: 0.05em; line-height: 1.6; }
+        .hover-line { position: relative; }
         .hover-line::after {
-            content: '';
-            position: absolute;
-            width: 0; height: 1px;
-            bottom: -4px; left: 0;
-            background-color: #e2e4e6;
-            transition: width 0.4s ease;
+            content: ''; position: absolute; width: 0; height: 1px; bottom: -4px; left: 0;
+            background-color: #e2e4e6; transition: width 0.4s ease;
         }
-        .hover-line:hover::after {
-            width: 100%;
-        }
+        .hover-line:hover::after { width: 100%; }
+        p { margin-bottom: 1.5rem; }
     </style>
 </head>
 <body class="antialiased selection:bg-silver selection:text-void flex flex-col min-h-screen">
     
     <div class="noise-overlay"></div>
 
-    <!-- Minimalist Navigation -->
-    <nav class="fixed w-full z-50 bg-void/70 backdrop-blur-xl border-b border-graphite/30">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-void/80 backdrop-blur-xl border-b border-graphite/40">
         <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
             <div class="text-sm tracking-widest-xl font-serif text-silver uppercase">
                 Status Archetype
             </div>
             <div class="flex gap-8 items-center">
-                <a href="#the-archive" class="text-xs tracking-widest font-medium text-ghost hover:text-silver transition-colors duration-300 uppercase hover-line">
-                    The Archive
-                </a>
-                <a href="#portal" class="text-xs tracking-widest font-medium text-silver border border-graphite px-5 py-2 hover:bg-silver hover:text-void transition-all duration-500 uppercase">
-                    Client Portal
+                <a href="#offer" class="text-xs tracking-widest font-medium text-silver border border-graphite px-6 py-2 hover:bg-silver hover:text-void transition-all duration-500 uppercase">
+                    The Protocol
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Cinematic Hero -->
-    <main class="relative flex-grow flex flex-col justify-center items-center text-center px-6 min-h-[90vh]">
-        <!-- Subtle radial gradient behind text -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(42,42,43,0.15)_0,rgba(5,5,5,1)_60%)] pointer-events-none"></div>
+    <!-- SECTION 1: The Hero Header (Layer 1 & 2) -->
+    <main class="relative flex flex-col justify-center items-center text-center px-6 min-h-screen pt-20">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(35,35,36,0.15)_0,rgba(3,3,3,1)_60%)] pointer-events-none"></div>
         
-        <div class="relative z-10 reveal">
+        <div class="relative z-10 reveal max-w-4xl mx-auto">
             <h2 class="text-xs tracking-widest-2xl text-ghost uppercase mb-8 font-semibold">The Sovereign Baseline</h2>
-            <h1 class="text-5xl md:text-8xl font-serif font-medium mb-8 tracking-wide text-silver leading-tight">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-medium mb-8 tracking-wide text-silver leading-tight">
                 Command The Room.<br>
                 <span class="text-graphite">Without A Word.</span>
             </h1>
-            <p class="mt-6 max-w-2xl mx-auto text-ghost text-base md:text-lg font-light leading-relaxed mb-12">
-                An exclusive protocol detailing the architecture of influence, executive presence, and non-verbal dominance. Decode the social hierarchy.
+            <p class="text-ghost text-base md:text-xl font-light leading-relaxed mb-12 max-w-2xl mx-auto">
+                Stop bending to the whims of the crowd. Master the hidden mechanics of power, strategic independence, and elite social dynamics to permanently elevate your status.
             </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="#dossier" class="bg-silver text-void px-10 py-4 text-xs font-bold tracking-widest hover:bg-white hover:shadow-[0_0_30px_rgba(226,228,230,0.15)] transition-all duration-500 uppercase">
-                    Request Dossier
-                </a>
-                <a href="#the-archive" class="text-xs tracking-widest text-ghost hover:text-silver transition-colors uppercase hover-line pb-1">
-                    Enter The Archive
-                </a>
+            
+            <div class="bg-carbon border border-graphite/50 p-8 max-w-xl mx-auto text-left">
+                <h3 class="text-sm font-serif tracking-widest uppercase text-silver mb-3">Free Intelligence Briefing</h3>
+                <p class="text-ghost text-sm mb-6">Enter your email to immediately receive <strong>The Executive Presence Checklist</strong>—a concrete, actionable diagnostic to audit your vocal tonality and physical posturing.</p>
+                <form class="flex flex-col sm:flex-row gap-0 group" onsubmit="event.preventDefault(); alert('Briefing dispatched. Check your inbox.');">
+                    <input type="email" placeholder="Your primary email..." required
+                        class="bg-void border border-graphite text-silver px-6 py-4 w-full focus:outline-none focus:border-silver transition-colors placeholder-graphite font-light text-sm">
+                    <button type="submit" class="bg-silver text-void px-8 py-4 text-xs font-bold tracking-widest hover:bg-white transition-colors duration-500 uppercase whitespace-nowrap">
+                        Send Briefing
+                    </button>
+                </form>
             </div>
         </div>
     </main>
 
-    <!-- The Archive (Curriculum) -->
-    <section id="the-archive" class="py-32 bg-obsidian relative border-t border-graphite/20">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="mb-24 reveal">
-                <h2 class="text-xs tracking-widest-xl text-ghost uppercase mb-4 font-semibold border-l border-ghost pl-4">Deconstruct The Matrix</h2>
-                <h3 class="text-3xl md:text-5xl font-serif text-silver">The Architecture of Influence</h3>
+    <!-- SECTION 2: The Authority Strip (Layer 2) -->
+    <section class="py-12 bg-obsidian border-y border-graphite/30 reveal">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-xs tracking-widest text-ghost uppercase mb-8 font-medium">As Implemented Within</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale">
+                <span class="font-serif text-xl tracking-widest">Elite Boardrooms</span>
+                <span class="font-serif text-xl tracking-widest">High-Stakes Negotiations</span>
+                <span class="font-serif text-xl tracking-widest">Executive Circles</span>
             </div>
+            <div class="mt-12 max-w-xl mx-auto border-t border-graphite/30 pt-8">
+                <p class="text-silver font-light italic">"94% of protocol initiates report an immediate, measurable shift in their social leverage and perceived authority within 14 days."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: The Pain & The Pivot (Layer 3) -->
+    <section class="py-32 bg-void relative">
+        <div class="max-w-3xl mx-auto px-6 reveal">
+            <h2 class="text-xs tracking-widest-xl text-ghost uppercase mb-4 font-semibold border-l border-ghost pl-4">The Trap of the Nice Guy</h2>
+            <h3 class="text-3xl md:text-5xl font-serif text-silver mb-10">You Know The Misery of Powerlessness.</h3>
             
-            <div class="grid md:grid-cols-3 gap-8 md:gap-12">
-                <!-- Pillar 1 -->
-                <div class="reveal group relative">
-                    <div class="absolute inset-0 bg-graphite/10 transform scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-700 ease-out"></div>
-                    <div class="p-10 border border-graphite/30 h-full relative z-10 backdrop-blur-sm">
-                        <div class="text-xs font-serif text-ghost tracking-widest mb-8 uppercase border-b border-graphite/30 pb-4">Volume I</div>
-                        <h4 class="text-2xl font-serif mb-6 text-silver">Aesthetic Dominance</h4>
-                        <p class="text-ghost font-light leading-loose text-sm">
-                            Cultivate a physical presence that demands immediate, unquestioned respect. Master sartorial psychology, silhouette scaling, and the visceral impact of non-verbal posturing. Dictate perception before you ever speak.
-                        </p>
-                    </div>
+            <p class="text-ghost font-light text-lg">
+                You have played by the rules. You have tried to be agreeable, hoping your compliance would be rewarded with respect. It hasn't.
+            </p>
+            <p class="text-ghost font-light text-lg">
+                Instead, it has led to a culture of weakness. You are constantly reacting to the emotions of others, yielding your autonomy, and watching lesser men secure the resources and status you deserve.
+            </p>
+            
+            <div class="quote-block">
+                "Leadership is not a popularity contest. Generic self-help will tell you to smile more. Reality requires you to develop grit, conviction, and strategic independence."
+            </div>
+
+            <p class="text-ghost font-light text-lg">
+                We agree: the standard advice is motivational fluff. It fails because it ignores the raw realities of human nature. You do not need platitudes; you need a concrete, actionable model for influence.
+            </p>
+            <p class="text-ghost font-light text-lg">
+                This is the architecture of real power. We will show you exactly how to rebuild your baseline so others remain dependent on you, not the other way around.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 4: The Narrative (Layer 4) -->
+    <section class="py-32 bg-obsidian border-t border-graphite/30">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center reveal">
+            <div>
+                <h2 class="text-xs tracking-widest-xl text-ghost uppercase mb-4 font-semibold border-l border-ghost pl-4">The Silent Tactician</h2>
+                <h3 class="text-3xl md:text-5xl font-serif text-silver mb-8">Influence is Gravity, Not Force.</h3>
+                <p class="text-ghost font-light text-lg">
+                    Consider the executive who never raises his voice, yet dictates the temperature of the entire room. While others scramble to fill the silence, he weaponizes it.
+                </p>
+                <p class="text-ghost font-light text-lg">
+                    He conceals his intentions. He masters the art of timing. He understands that the moment you react emotionally to a provocation, you have handed over the keys to your sovereignty.
+                </p>
+                <p class="text-ghost font-light text-lg">
+                    You have felt the frustration of losing control during a high-stakes conversation. We understand that psychology. By adopting the tactician's mindset, you force others into your frame. When you control your emotional baseline, you control the outcome.
+                </p>
+            </div>
+            <div class="bg-carbon border border-graphite/40 p-12 relative">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_top_right,rgba(226,228,230,0.05)_0,transparent_70%)]"></div>
+                <h4 class="font-serif text-xl text-silver mb-6">The Trinity of Control</h4>
+                <ul class="space-y-6 text-ghost font-light text-sm">
+                    <li class="flex items-start gap-4">
+                        <span class="text-silver font-serif">I.</span>
+                        <span><strong>Concealment:</strong> Never reveal your full hand. Predictability is the death of leverage.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-silver font-serif">II.</span>
+                        <span><strong>Emotional Reappraisal:</strong> Shift from suppression to cognitive reframing to maintain lethal sharpness under fire.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-silver font-serif">III.</span>
+                        <span><strong>Calculated Scarcity:</strong> Withdraw your presence to manufacture demand and solidify your rank.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Transparency & Trust Blueprint (Inserted logically before the technical proof) -->
+    <section class="py-32 bg-void relative">
+        <div class="max-w-4xl mx-auto px-6 text-center reveal">
+            <h2 class="text-xs tracking-widest-xl text-ghost uppercase mb-4 font-semibold">The Flight Plan</h2>
+            <h3 class="text-3xl md:text-4xl font-serif text-silver mb-8">Why We Built The Archetype.</h3>
+            
+            <p class="text-ghost font-light text-lg max-w-3xl mx-auto">
+                We are radically open about our origins. We built this protocol because we spent our twenties losing to inferior men who simply understood the game better than we did. 
+            </p>
+            <p class="text-ghost font-light text-lg max-w-3xl mx-auto">
+                We experienced the humiliation of being overlooked for promotions, disrespected in social settings, and manipulated by those who wielded power effortlessly. We didn't have a mentor. We had to reverse-engineer the sociology of status through brutal trial and error.
+            </p>
+            <p class="text-silver font-medium text-lg max-w-3xl mx-auto mt-8">
+                We mapped the code so you don't have to repeat our failures. This is the exact blueprint we used to ascend.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 8: Legitimacy & Competence Justification -->
+    <section class="py-32 bg-obsidian border-y border-graphite/30">
+        <div class="max-w-3xl mx-auto px-6 reveal">
+            <h2 class="text-xs tracking-widest-xl text-ghost uppercase mb-4 font-semibold border-l border-ghost pl-4">Free Sample of Competence</h2>
+            <h3 class="text-3xl md:text-5xl font-serif text-silver mb-10">Power vs. Status: The Reappraisal Technique.</h3>
+            
+            <p class="text-ghost font-light text-lg">
+                Social hierarchies demand legitimacy. You cannot demand respect; you must extract it through undeniable competence. Let us prove our expertise with a concrete mechanism you can use today.
+            </p>
+            
+            <div class="quote-block">
+                Power is the control over resources. Status is the voluntary respect you receive. You can hold power and be despised, but high status guarantees compliance.
+            </div>
+
+            <p class="text-ghost font-light text-lg">
+                <strong>The Strategy:</strong> When confronted aggressively, the average man suppresses his anger (which leaks through micro-expressions) or erupts (destroying his status). The Sovereign uses <em>Cognitive Reappraisal</em>. 
+            </p>
+            <p class="text-ghost font-light text-lg">
+                Instead of viewing the aggressor as a threat, you instantly reframe them internally as a "panicking subordinate." This entirely eliminates your physiological stress response. Your heart rate drops. Your voice deepens. You respond with a terrifying, clinical calm that immediately establishes you as the highest-status individual in the room.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 5: The Offer (Layer 5) -->
+    <section id="offer" class="py-32 bg-void relative">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(35,35,36,0.15)_0,rgba(3,3,3,1)_70%)]"></div>
+        <div class="max-w-5xl mx-auto px-6 relative z-10 reveal text-center">
+            <h2 class="text-xs tracking-widest-xl text-ghost uppercase mb-4 font-semibold">The Final Layer</h2>
+            <h3 class="text-4xl md:text-6xl font-serif text-silver mb-12">The Sovereign Protocol</h3>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                <!-- Anchor / High Value -->
+                <div class="p-10 border border-graphite bg-carbon/50 opacity-60">
+                    <h4 class="font-serif text-xl text-ghost mb-2">Executive Consultation</h4>
+                    <div class="text-3xl font-serif text-ghost mb-6 line-through">$1,500.00</div>
+                    <ul class="space-y-4 text-ghost text-sm font-light">
+                        <li>&#x2713; 1-on-1 Status Auditing</li>
+                        <li>&#x2713; Personalized Hierarchy Mapping</li>
+                        <li>&#x2713; Ongoing Access</li>
+                    </ul>
                 </div>
                 
-                <!-- Pillar 2 -->
-                <div class="reveal group relative" style="transition-delay: 100ms;">
-                    <div class="absolute inset-0 bg-graphite/10 transform scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-700 ease-out"></div>
-                    <div class="p-10 border border-graphite/30 h-full relative z-10 backdrop-blur-sm">
-                        <div class="text-xs font-serif text-ghost tracking-widest mb-8 uppercase border-b border-graphite/30 pb-4">Volume II</div>
-                        <h4 class="text-2xl font-serif mb-6 text-silver">Vocal Resonance</h4>
-                        <p class="text-ghost font-light leading-loose text-sm">
-                            Adopt the cadence of definitive authority. Learn to anchor your vocal inflection, weaponize silence, and speak with a deliberate, unshakeable weight that forces others to lean in and listen.
-                        </p>
+                <!-- The Actual Offer -->
+                <div class="p-10 border border-silver bg-carbon relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(226,228,230,0.05)]">
+                    <div class="absolute top-0 right-0 bg-silver text-void text-xs font-bold px-3 py-1 uppercase tracking-widest">
+                        Digital Vault
                     </div>
-                </div>
-                
-                <!-- Pillar 3 -->
-                <div class="reveal group relative" style="transition-delay: 200ms;">
-                    <div class="absolute inset-0 bg-graphite/10 transform scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-700 ease-out"></div>
-                    <div class="p-10 border border-graphite/30 h-full relative z-10 backdrop-blur-sm">
-                        <div class="text-xs font-serif text-ghost tracking-widest mb-8 uppercase border-b border-graphite/30 pb-4">Volume III</div>
-                        <h4 class="text-2xl font-serif mb-6 text-silver">Social Hierarchy</h4>
-                        <p class="text-ghost font-light leading-loose text-sm">
-                            Navigate high-stakes environments effortlessly. Decode subtle power dynamics, establish unbreakable boundaries, and position yourself as the undeniable, high-value asset in any room.
-                        </p>
-                    </div>
+                    <h4 class="font-serif text-2xl text-silver mb-2">The Archive Access</h4>
+                    <div class="text-4xl font-serif text-white mb-2">$297.00</div>
+                    <p class="text-xs text-ghost uppercase tracking-widest mb-8">Access closes in exactly <span class="text-silver font-bold">48:00:00</span></p>
+                    
+                    <ul class="space-y-4 text-silver text-sm font-light mb-10">
+                        <li>&#x2713; The Complete Psychological Framework</li>
+                        <li>&#x2713; Infographics & Strategic Checklists</li>
+                        <li>&#x2713; Immediate Digital Download</li>
+                        <li>&#x2713; Private Member Login</li>
+                    </ul>
+                    
+                    <button class="w-full bg-silver text-void px-8 py-5 text-sm font-bold tracking-widest hover:bg-white transition-colors duration-500 uppercase text-center block">
+                        Secure Your Asset
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Waitlist / CTA -->
-    <section id="dossier" class="py-40 bg-void relative overflow-hidden border-t border-graphite/20">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(42,42,43,0.1)_0,rgba(5,5,5,1)_70%)]"></div>
-        <div class="max-w-2xl mx-auto px-6 text-center relative z-10 reveal">
-            <h2 class="text-4xl md:text-6xl font-serif mb-8 text-silver">The Inner Circle</h2>
-            <p class="text-ghost mb-12 font-light text-base leading-relaxed">
-                The Status Archetype intelligence vault is strictly invitation-only. Access to the proprietary infographics, dossiers, and executive breakdowns is limited. Submit your credentials to request clearance.
+    <!-- SECTION 6: The Legacy (Layer 6) -->
+    <section class="py-24 bg-obsidian border-t border-graphite/30 text-center">
+        <div class="max-w-2xl mx-auto px-6 reveal">
+            <h3 class="text-2xl font-serif text-silver mb-6">Ascend.</h3>
+            <p class="text-ghost font-light text-base mb-8">
+                Status Archetype is not just about isolated tactics; it is about holistic transformation. Master these mechanics to permanently alter how the world perceives you—professionally, socially, and romantically. 
             </p>
-            <form class="flex flex-col sm:flex-row gap-0 justify-center border border-graphite/50 group hover:border-graphite transition-colors duration-500" onsubmit="event.preventDefault(); alert('Request logged. Awaiting clearance.');">
-                <input type="email" placeholder="Enter executive email..." required
-                    class="bg-transparent text-silver px-8 py-5 w-full focus:outline-none placeholder-graphite font-light text-sm">
-                <button type="submit" class="bg-carbon text-silver px-10 py-5 text-xs font-bold tracking-widest hover:bg-silver hover:text-void transition-colors duration-500 uppercase whitespace-nowrap border-l border-graphite/50 group-hover:border-graphite">
-                    Initiate Review
-                </button>
-            </form>
-            <p class="text-graphite text-xs mt-6 tracking-widest uppercase">Encryption Standard 04 // Restricted Access</p>
+            <p class="text-ghost text-xs uppercase tracking-widest">
+                The choice is yours. Remain dependent, or learn to rule.
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-graphite/20 py-12 bg-obsidian text-center">
+    <footer class="border-t border-graphite/20 py-10 bg-void text-center">
         <p class="text-graphite text-xs tracking-widest-xl uppercase font-light">
             &copy; 2024 Status Archetype. All Rights Reserved.
         </p>
@@ -205,9 +291,7 @@
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // Trigger on load
+        reveal(); 
     </script>
 </body>
 </html>
-<!-- Trigger fresh Vercel deployment -->
-<!-- Vercel Force Build: Sun Mar 22 06:56:57 UTC 2026 -->
